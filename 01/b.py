@@ -1,18 +1,13 @@
-import os
 
-file_path = os.path.dirname(os.path.realpath(__file__))
+def b(input):
 
-input_path = file_path + "/b.in.txt"
+    row_set = set()
 
-inpt = open(input_path, 'r')
+    for line in input:
+        line = int(line)
+        row_set.add(line)
 
-row_set = set()
-
-for line in inpt:
-    line = int(line)
-    row_set.add(line)
-
-for i in row_set:
-    for j in row_set:
-        if i != j and 2020 - i - j in row_set:
-            print(i, j, 2020 - i - j, i * j * (2020 - i - j))
+    for i in row_set:
+        for j in row_set:
+            if i != j and 2020 - i - j in row_set:
+                return i, j, 2020 - i - j, i * j * (2020 - i - j)

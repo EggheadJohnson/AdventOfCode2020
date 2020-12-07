@@ -1,6 +1,7 @@
 import os
 from a import a
 from b import b
+from c import c
 
 file_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -10,3 +11,4 @@ inpt = [ line.strip() for line in open(input_path, 'r')]
 
 print("result A:", a(inpt))
 print("result B:", b(inpt))
+print("result C:", c(inpt))

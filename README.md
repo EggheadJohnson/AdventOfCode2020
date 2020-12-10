@@ -9,3 +9,4 @@ Day 6 - Groups of letters find how many letters are called out across all groups
 Day 7 - Bags stored in bags how many ways to include shiny gold, how many bags can shiny gold contain?
 Day 8 - Started the computer
 Day 9 - Find the number in a series that is not expressible as the sum of two numbers in the previous series, find the sequence of numbers that sum to the result from part A
+Day 10 - Sort this list of numbers, find the total number of allowable permutations of the numbers

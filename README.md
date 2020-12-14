@@ -10,3 +10,5 @@ Day 7 - Bags stored in bags how many ways to include shiny gold, how many bags c
 Day 8 - Started the computer
 Day 9 - Find the number in a series that is not expressible as the sum of two numbers in the previous series, find the sequence of numbers that sum to the result from part A
 Day 10 - Sort this list of numbers, find the total number of allowable permutations of the numbers
+Day 11 - Game of life, game of life with extra rules
+Day 12 - Directions with Manhattan distance, complicated directions with Manhattan distance

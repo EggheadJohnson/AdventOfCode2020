@@ -12,3 +12,4 @@ Day 9 - Find the number in a series that is not expressible as the sum of two nu
 Day 10 - Sort this list of numbers, find the total number of allowable permutations of the numbers
 Day 11 - Game of life, game of life with extra rules
 Day 12 - Directions with Manhattan distance, complicated directions with Manhattan distance
+Day 13 - Smallest multiple across several numbers above given number, first number that matches a certain pattern

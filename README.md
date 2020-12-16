@@ -14,3 +14,4 @@ Day 11 - Game of life, game of life with extra rules
 Day 12 - Directions with Manhattan distance, complicated directions with Manhattan distance
 Day 13 - Smallest multiple across several numbers above given number, first number that matches a certain pattern
 Day 14 - Perform a bitmask on some values, perform a permuted bitmask on some values
+Day 15 - build a series with some rules, build a longer series with some rules

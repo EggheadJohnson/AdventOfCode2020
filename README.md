@@ -31,3 +31,5 @@ Day 14 - Perform a bitmask on some values, perform a permuted bitmask on some va
 Day 15 - build a series with some rules, build a longer series with some rules
 
 Day 16 - Figure out which tickets have invalid numbers, figure out which field on the ticket has which name
+
+Day 17 - 3D Game of Life, 4D Game of Life

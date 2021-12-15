@@ -15,7 +15,7 @@ def buildRulesDict(input):
 def getTestStrings(input):
     return [ line for line in input if len(line) > 0 and ': ' not in line ]
 
-def buildREForKey(rulesDict, key):
+def buildREForKey(rulesDict, key, repeating42 = False):
     rule = rulesDict[key].split(' ')
     ruleOut = []
     for k in rule:
@@ -23,9 +23,12 @@ def buildREForKey(rulesDict, key):
             if rulesDict[k] in ('a', 'b'):
                 ruleOut.append('(' + rulesDict[k] + ')')
             else:
-                ruleOut.append(buildREForKey(rulesDict, k))
+                ruleOut.append(buildREForKey(rulesDict, k, repeating42))
         elif k == '|':
             ruleOut.append('|')
+    if key == '42' and repeating42:
+        ruleOut = flattenRE(ruleOut)
+        ruleOut += '*'
     return ruleOut
 
 def flattenRE(reArray):
@@ -52,4 +55,12 @@ def part1(input):
     return len(matches)
 
 def part2(input):
-    return None
+    rulesDict = buildRulesDict(input)
+    testStrings = getTestStrings(input)
+    # pp.pprint(rulesDict)
+    # pp.pprint(testStrings)
+    reToUse = buildREForKey(rulesDict, '0', True)
+    flattenedREToUse = '^' + flattenRE(reToUse) + '$'
+    # print(flattenedREToUse)
+    matches = list(filter(lambda x: re.search(flattenedREToUse, x), testStrings))
+    return len(matches)

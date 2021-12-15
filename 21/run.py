@@ -4,7 +4,7 @@ from b import b
 
 file_path = os.path.dirname(os.path.realpath(__file__))
 
-input_path = file_path + "/sample.txt"
+input_path = file_path + "/input.txt"
 
 inpt = [ line.strip() for line in open(input_path, 'r')]
 

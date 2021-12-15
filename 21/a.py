@@ -1,4 +1,4 @@
-import pprint
+import pprint, functools
 pp = pprint.PrettyPrinter(indent=4)
 
 def prepLine(line):
@@ -34,11 +34,51 @@ def makeHighestMatchSets(ingredient_counts):
         highest_match_sets[key] = getHighestMatchSet(val_dict)
     return highest_match_sets
 
+def makeAllergenCounts(parsed_input):
+    allergenCounts = {}
+    for ingredients, allergens in parsed_input:
+        for allergen in allergens:
+            if allergen not in allergenCounts:
+                allergenCounts[allergen] = {}
+            for ingredient in ingredients:
+                allergenCounts[allergen][ingredient] = allergenCounts[allergen].get(ingredient, 0) + 1
+    return allergenCounts
+
+def makeAllergenSets(parsedInput):
+    allergenSets = {}
+    for ingredients, allergens in parsedInput:
+        for allergen in allergens:
+            if allergen not in allergenSets:
+                allergenSets[allergen] = set(ingredients)
+            else:
+                allergenSets[allergen] = allergenSets[allergen] & set(ingredients)
+    return allergenSets
+
+def buildFullIngredientSet(parsedInput):
+    ingredientSet = set()
+    for ingredients, _ in parsedInput:
+        ingredientSet = ingredientSet | set(ingredients)
+    return ingredientSet
+
+def buildSuspectedAllergens(allergenSets):
+    suspectedAllergens = set()
+    for allergenSet in allergenSets.values():
+        suspectedAllergens = suspectedAllergens | allergenSet
+    return suspectedAllergens
+
+def getUsageCount(safeIngredients, parsedInput):
+    total = 0
+    return sum([ sum([ 1 if ingredient in safeIngredients else 0 for ingredient in line[0] ]) for line in parsedInput ])
+
 def a(input):
-    parsed_input = list(map(prepLine, input))
-    print(parsed_input)
-    ingredient_counts = makeIngredientCounts(parsed_input)
-    pp.pprint(ingredient_counts)
-    highest_match_sets = makeHighestMatchSets(ingredient_counts)
-    pp.pprint(highest_match_sets)
-    return None
+    parsedInput = list(map(prepLine, input))
+    # pp.pprint(parsedInput)
+    ingredientSet = buildFullIngredientSet(parsedInput)
+    # pp.pprint(ingredientSet)
+    allergenSets = makeAllergenSets(parsedInput)
+    # pp.pprint(allergenSets)
+    suspectedAllergens = buildSuspectedAllergens(allergenSets)
+    # pp.pprint(suspectedAllergens)
+    safeIngredients = ingredientSet - suspectedAllergens
+    # pp.pprint(safeIngredients)
+    return getUsageCount(safeIngredients, parsedInput)

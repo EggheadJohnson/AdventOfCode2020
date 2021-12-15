@@ -94,4 +94,8 @@ def part1(input):
     return product
 
 def part2(input):
+    '''
+        for part two, keep in mind you have identified the corners (2 matching sides),
+        the edges (3 matching sides), and the middles (4 matching sides)
+    '''
     return None
